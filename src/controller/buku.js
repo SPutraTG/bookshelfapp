@@ -29,9 +29,10 @@ let listData = {
             if(err){
                 console.log("ERROR");
             }
-        let inputName = req.body.name;
-        let inputGender = req.body.gender;
-        const query = "INSERT INTO peserta (name, gender) VALUES ('"+ inputName +"', '"+ inputGender +"')"; //insert harus ambil data dari frontend
+        let inputJudul = req.body.judul;
+        let inputPenulis = req.body.penulis;
+        let inputTahun = req.body.tahun;
+        const query = "INSERT INTO complete (judul, penulis, tahun) VALUES ('"+ inputJudul +"', '"+ inputPenulis +"', '"+ inputTahun +"')"; //insert harus ambil data dari frontend
         connection.query(query, (err, result) => {
             if(err){
                 console.log("ERROR");
@@ -50,7 +51,7 @@ let listData = {
             }
         let dellId = req.params.id; //cari input data dari frontend dengan id
        
-        const query = "DELETE FROM peserta WHERE id = '"+ dellId +"'";
+        const query = "DELETE FROM complete WHERE id = '"+ dellId +"'";
         connection.query(query, (err, result) => {
             if(err){
                 console.log("ERROR");
@@ -68,11 +69,12 @@ let listData = {
                 console.log("ERROR");
             }
         
-            let inputName = req.body.name;
-            let inputGender = req.body.gender;
+            let inputJudul = req.body.judul;
+            let inputPenulis = req.body.penulis;
+            let inputTahun = req.body.tahun;
             let inputId = req.params.id; //cari input data dari frontend dengan id
        
-        const query = "UPDATE peserta SET name = '"+ inputName +"', gender = '"+ inputGender +"' WHERE id = '"+ inputId +"'";
+        const query = "UPDATE complete SET judul = '"+ inputJudul +"', penulis = '"+ inputPenulis +"', tahun = '"+ inputTahun +"' WHERE id = '"+ inputId +"'";
         connection.query(query, (err, result) => {
             if(err){
                 console.log("ERROR");
